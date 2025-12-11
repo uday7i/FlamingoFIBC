@@ -1,0 +1,423 @@
+/* ---------------------------------------------
+   GLOBAL RESET & BASE
+---------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg:#fbf9f6;
+  --card:#ffffff;
+  --muted:#7a6f64;
+  --accent:#b98b5b;
+  --accent-2:#d9bfa2;
+  --text:#1a1a1a;
+  --radius:14px;
+  --container:1200px; /* more professional wide layout */
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  background: linear-gradient(180deg,#fbfbfb 0%, #fffaf7 100%);
+  color: var(--text);
+  line-height: 1.45;
+  font-size: 16px;
+}
+
+/* ---------------------------------------------zx
+   LAYOUT
+---------------------------------------------- */
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 40px; /* CLEAN LEFT + RIGHT MARGIN */
+}
+
+/* ---------------------------------------------
+   HEADER
+---------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: var(--card);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(20,20,20,0.06);
+  padding: 14px 0;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--text);
+  align-items: center;
+}
+
+.logo-mark {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: linear-gradient(45deg, var(--accent), var(--accent-2));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 20px;
+  box-shadow: 0 6px 18px rgba(185,139,91,0.12);
+}
+
+.brand-name {
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.brand-sub {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* NAV */
+.main-nav {
+  display: flex;
+  gap: 20px;
+}
+
+.main-nav a {
+  color: var(--text);
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.main-nav a:hover {
+  background: rgba(0,0,0,0.04);
+}
+
+.main-nav a.active {
+  background: linear-gradient(90deg, rgba(185,139,91,0.15), rgba(217,191,162,0.08));
+  font-weight: 700;
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* ---------------------------------------------
+   HERO SECTION
+---------------------------------------------- */
+.hero {
+  padding: 70px 0;
+  background: linear-gradient(180deg, rgba(217,191,162,0.08), transparent 40%);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 450px;
+  gap: 50px; /* BETTER RIGHT SPACING */
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+}
+
+.lead {
+  color: var(--muted);
+  margin: 18px 0;
+} 72[ ]
+
+.hero-visual {
+  display: flex;
+  justify-content: flex-end; /* aligns right for premium look */
+}
+
+.bag-stack {
+  display: grid;
+  gap: 12px;
+}
+
+.bag {
+  background: var(--card);
+  padding: 22px;
+  border-radius: 14px;
+  font-weight: 600;
+  box-shadow: 0 12px 30px rgba(16,16,16,0.08);
+}
+
+/* ---------------------------------------------
+   SECTIONS
+---------------------------------------------- */
+.section {
+  padding: 60px 0;
+}
+
+.section-head h3 {
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* ---------------------------------------------
+   CARDS
+---------------------------------------------- */
+.cards-grid,
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+  margin: 20px 0;
+  
+}
+.card,
+.product-card {
+  background: var(--card);
+  padding: 22px;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(12,12,12,0.05);
+}
+
+.card h4 {
+  margin-bottom: 10px;
+}
+
+.product-card h3 {
+  margin-bottom: 10px;
+  padding-left: 4px;
+  font-weight: 700;
+}
+
+/* LIST */
+.exact-list {
+  margin-left: 16px;
+  color: var(--text);
+}
+
+.exact-list li {
+  margin: 10px 0;
+  padding-left: 18px;
+  list-style: none;
+  position: relative;
+}
+
+.exact-list li::before {
+  content: "•";
+  color: var(--accent);
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* ---------------------------------------------
+   GRID STRUCTURES
+---------------------------------------------- */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.stats {
+  display: flex;
+  gap: 22px;
+}
+
+.stat {
+  background: linear-gradient(180deg, #fff, rgba(248,245,240,1));
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  width: 100%;
+}
+
+.stat strong {
+  font-size: 20px;
+}
+
+/* PROCESS */
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.process-step {
+  background: var(--card);
+  padding: 18px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+/* ---------------------------------------------
+   PRODUCT PAGE FULL GRID
+---------------------------------------------- */
+.products-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* ---------------------------------------------
+   CONTACT FORM
+---------------------------------------------- */
+.contact-section .form {
+  background: var(--card);
+  padding: 24px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(12,12,12,0.08);
+}
+
+.form label {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.form input,
+.form textarea {
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(20,20,20,0.08);
+}
+
+.form-actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+/* ---------------------------------------------
+   FOOTER
+---------------------------------------------- */
+.site-footer {
+  padding: 40px 0;
+  border-top: 1px solid rgba(20,20,20,0.08);
+  margin-top: 50px;
+}
+
+.footer-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.footer-links a {
+  display: block;
+  color: var(--muted);
+  margin: 6px 0;
+  text-decoration: none;
+}
+
+/* ---------------------------------------------
+   BUTTONS
+---------------------------------------------- */
+.btn {
+  background: var(--accent);
+  color: white;
+  padding: 12px 18px;
+  border-radius: 12px;
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.btn-ghost {
+  border: 1px solid rgba(20,20,20,0.08);
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: transparent;
+}
+
+.link {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.center {
+  text-align: center;
+}
+
+/* ---------------------------------------------
+   RESPONSIVE FIX FOR HOME PAGE CARDS
+---------------------------------------------- */
+@media (max-width: 980px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns tablet */
+    gap: 20px;
+    padding: 0 12px;
+  }
+
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .main-nav {
+    display: none;
+    position: absolute;
+    right: 20px;
+    top: 75px;
+    background: var(--card);
+    padding: 16px;
+    border-radius: 14px;
+    box-shadow: 0 16px 30px rgba(0,0,0,0.1);
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .cards-grid {
+    grid-template-columns: 1fr; /* STACK CARDS ON MOBILE */
+    gap: 16px;
+    padding: 0 12px;
+  }
+
+  .card {
+    width: 100%;
+    padding: 18px;
+    margin: 0;
+  }
+
+  .card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+    object-fit: cover;
+  }
+}
+
+
